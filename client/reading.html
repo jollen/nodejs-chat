@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="stylesheets/bootstrap.min.css" />
+<script type='text/javascript' src="javascripts/jquery.min.js"></script>
+<script type='text/javascript' src="javascripts/bootstrap.min.js"></script>
+<script type='text/javascript' src="javascripts/underscore/underscore.js"></script>
+<script type='text/javascript' src="javascripts/backbone/backbone.js"></script>
+<script type='text/javascript' src="javascripts/booklog-read.js"></script>
+</head>
+<body>
+
+<script type="text/template" id="tmpl-message">
+	<div class="panel panel-primary">
+	  <div class="panel-heading">
+	    <h3 class="panel-title"><%= post.subject %></h3>
+	  </div>
+	  <div class="panel-body">
+	    <%= post.content %>
+	  </div>
+	</div>
+	<button class="btn btn-primary" id="btn-next">Next</button>
+</script>
+
+<div class="container">
+    <div class="row clearfix" id="message">
+		<button class="btn btn-primary" id="btn-next">Start</button>
+    </div>
+</div>
+
+</body>
+</html>
