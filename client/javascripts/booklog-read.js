@@ -16,7 +16,7 @@ app.PostItem = Backbone.Model.extend({
 });
 
 app.Post = Backbone.Model.extend({
-	id: undefined,
+	idAttribute: 'id',	// automatically map to id
 	url: function() {
 		return 'http://booklog.io/1/post/' + this.id;
 	},
@@ -79,7 +79,6 @@ app.PostItemView = Backbone.View.extend({
 	        	var id = me.data('id'),
 	        		post = self.collection.get(id);
 
-	        	console.log('ID: ' + id);
 	        	app.postView.model.set(post.attributes);
 	        });
 		});
