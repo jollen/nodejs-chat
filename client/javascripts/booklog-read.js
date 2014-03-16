@@ -1,6 +1,6 @@
 var app = app || {};
 
-app.Message = Backbone.Model.extend({
+app.PostItem = Backbone.Model.extend({
 	url: function() {
 		if (this.attributes.posts.length === 0)
 			return 'http://booklog.io/1/post';
@@ -20,16 +20,16 @@ app.Message = Backbone.Model.extend({
 	}
 });
 
-app.MessageView = Backbone.View.extend({
-	el: '#message',
+app.PostItemView = Backbone.View.extend({
+	el: '#PostItem',
 	events: {
 		'click #btn-next': 'next', 
 	},
 	initialize: function() {
 		var self = this;
 
-		this.model = new app.Message();	
-		this.template = _.template($('#tmpl-message').html());
+		this.model = new app.PostItem();	
+		this.template = _.template($('#tmpl-post').html());
 
 		this.model.fetch({
 			success: function(model, response, options) {
@@ -48,5 +48,5 @@ app.MessageView = Backbone.View.extend({
 });
 
 $(document).ready(function () {
-	app.messageView = new app.MessageView();
+	app.PostItemView = new app.PostItemView();
 });
