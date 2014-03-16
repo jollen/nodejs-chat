@@ -21,7 +21,7 @@ app.PostItem = Backbone.Model.extend({
 });
 
 app.PostItemView = Backbone.View.extend({
-	el: '#PostItem',
+	el: '#content-posts',
 	events: {
 		'click #btn-next': 'next', 
 	},
