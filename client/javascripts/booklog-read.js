@@ -67,13 +67,13 @@ app.PostItemView = Backbone.View.extend({
 	        	id = me.data('id'),
 	        	post = new app.Post({id: id});
 
-				post.fetch({
-					success: function(model, response, options) {
-						me.find('.status-loading').addClass('hide');
-					}
-				});
+			post.fetch({
+				success: function(model, response, options) {
+					me.find('.status-loading').addClass('hide');
+				}
+			});
 
-				self.collection.push(post);
+			self.collection.push(post);
 
 	        me.on('click', function() {
 	        });
