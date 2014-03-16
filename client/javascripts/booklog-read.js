@@ -76,6 +76,10 @@ app.PostItemView = Backbone.View.extend({
 			self.collection.push(post);
 
 	        me.on('click', function() {
+	        	var id = me.data('id'),
+	        		post = self.collection.get(id);
+
+	        	app.postView.model.set(post.attributes);
 	        });
 		});
 	}
@@ -86,22 +90,17 @@ app.PostView = Backbone.View.extend({
 	initialize: function() {
 		var self = this;
 
-		//this.model = new app.Post();	
+		this.model = new app.Post();	
 		this.template = _.template($('#tmpl-post').html());
-
-		this.model.fetch({
-			success: function(model, response, options) {
-				self.model.bind('change', self.render, self);
-			}
-		});
+		this.model.bind('change', this.render, this);
 	},
 	render: function() {
-		// ViewModel
 		var data = this.template(this.model.attributes);
 		this.$el.html(data);
 	}
 });
 
 $(document).ready(function () {
-	app.PostItemView = new app.PostItemView();
+	app.postItemView = new app.PostItemView();
+	app.postView = new app.PostView();
 });
