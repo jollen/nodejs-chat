@@ -26,10 +26,11 @@ app.Post = Backbone.Model.extend({
 		success: false,
 		errors: [],
 		errfor: [],
-
-		wchars: 0,
-		subject: '',
-		content: ''
+		post: {
+			wchars: 0,
+			subject: '',
+			content: ''
+		}
 	}
 });
 
@@ -79,7 +80,6 @@ app.PostItemView = Backbone.View.extend({
 	        	var id = me.data('id'),
 	        		post = self.collection.get(id);
 
-	        	console.log('ID: ' + id);
 	        	app.postView.model.set(post.attributes);
 	        });
 		});
@@ -89,11 +89,18 @@ app.PostItemView = Backbone.View.extend({
 app.PostView = Backbone.View.extend({
 	el: '#content-post',
 	initialize: function() {
-		var self = this;
+		var id = this.$el.data('post-id');
 
 		this.model = new app.Post();	
 		this.template = _.template($('#tmpl-post').html());
 		this.model.bind('change', this.render, this);
+
+		this.model.set('id', id);
+		this.model.fetch({
+			success: function(model, response, options) {
+				console.log(JSON.stringify(model));
+			}
+		});
 	},
 	render: function() {
 		var data = this.template(this.model.attributes);
@@ -102,6 +109,8 @@ app.PostView = Backbone.View.extend({
 });
 
 $(document).ready(function () {
-	app.postItemView = new app.PostItemView();
+	//app.postItemView = new app.PostItemView();
+
+	/* read one post by ID */
 	app.postView = new app.PostView();
 });

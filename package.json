@@ -9,5 +9,8 @@
     "express": "3.4.4",
     "jade": "*",
     "requestify": "*"
+  },
+  "devDependencies": {
+    "grunt-contrib-less": "~0.10.0"
   }
 }
