@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="stylesheets/bootstrap.min.css" />
+<link rel="stylesheet" href="stylesheets/style.css" />
+<link rel="stylesheet" href="stylesheets/site.css" />
+<script type='text/javascript' src="javascripts/jquery.min.js"></script>
+<script type='text/javascript' src="javascripts/bootstrap.min.js"></script>
+<script type='text/javascript' src="javascripts/underscore/underscore.js"></script>
+<script type='text/javascript' src="javascripts/backbone/backbone.js"></script>
+<script type='text/javascript' src="javascripts/booklog-read.js"></script>
+</head>
+<body>
+
+<script type="text/template" id="tmpl-post">
+	<div class="panel panel-primary">
+	  <div class="panel-heading">
+	    <h3 class="panel-title" style="font-size: 48px;"><%= post.subject %></h3>
+	  </div>
+	  <div class="panel-body">
+	    <%= post.content %>
+	  </div>
+	</div>
+</script>
+
+<script type="text/template" id="tmpl-post-item">
+    <% _.each(posts, function(post) { %>
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+			<div class="offer offer-success" data-tag="post-item" data-id="<%= post.id %>">
+				<div class="shape">
+					<div class="shape-text">
+						100%						
+					</div>
+				</div>
+				<div class="offer-content">
+					<h3 class="lead">
+						<%= post.subject %>
+					</h3>
+					<img class="status-loading" src="images/loading.gif" width="32" />
+				</div>
+			</div>
+		</div>
+    <% }); %>
+</script>
+
+<div class="container">
+	<button class="btn btn-info">Hello World</button>
+    <div class="row clearfix" id="content-post-item">
+    </div>
+</div>
+
+<div class="container">
+    <div class="row clearfix" id="content-post">
+    </div>
+</div>
+
+</body>
+</html>
