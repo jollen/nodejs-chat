@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Bootstrap V3 template</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" media="screen">
+		<link href="main.css" rel="stylesheet" media="screen">
+		<script src="bower_components/jquery/dist/jquery.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/underscore/underscore.js"></script>
+        <script src="bower_components/backbone/backbone.js"></script>
+		<script src="jquery.websocket.js"></script>
+        <script src="main.js"></script>
+	</head>
+	<body>
+
+<script type="text/template" id="tmpl-message">
+    <h4>
+        <span><%= data.timestamp %></span>: <%= data.message %>
+    </h4>
+</script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-xs-3 col-md-3 text-center">
+                        <img src="http://bootsnipp.com/apple-touch-icon-114x114-precomposed.png" alt="bootsnipp"
+                            class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-xs-9 col-md-9 section-box">
+						<div id="board"></div>
+                        <hr />
+                        <div class="row rating-desc">
+                            <div class="col-md-12">
+                                </span>
+                                <span class="glyphicon glyphicon-comment"></span>(100 Comments)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-xs-3 col-md-3 text-center">
+                        <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/s160x160/1383059_247772075369912_927324687_a.png"
+                            alt="jQuery2DotNet" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-xs-9 col-md-9 section-box">
+                        <h2>
+                            Nodejs Chat Room <a href="http://www.jquery2dotnet.com/" target="_blank"><span class="glyphicon glyphicon-new-window">
+                            </span></a>
+                        </h2>
+                        <hr>
+                        <h3>Status:</h3>
+                        <div id="status">
+                            <p>Live Streamming Chat Room</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="navbar navbar-inverse navbar-fixed-bottom" id="control">
+	<ul class="nav navbar-nav">
+		<li><input id="text" type="text" class="form-control"></li>
+		<li><button id="submit" class="btn btn-success">Send</button></li>
+	</ul>
+</div>
+
+	</body>
+</html>
+
